@@ -1,8 +1,12 @@
+"""
+This module demonstrates string multiplication and variable assignment in Python.
+It multiplies a string by a string, assigns a value to a variable, and then prints these values.
+"""
 # name = input("What is your name? ")
 
 # print(f"Hello, {name}")
 
-x = "Hello" * "opo"
-y = 20
+X = "Hello" * "opo"
+Y = 20
 
-print(x)
+print(X)

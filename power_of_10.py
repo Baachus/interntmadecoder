@@ -1,11 +1,16 @@
-power = 3 
+"""
+This module demonstrates the use of power and base in Python.
+It assigns values to power, base, and zero variables, prints the type of zero,
+creates a result by concatenating the base and power multiplied by zero as strings,
+and then prints the type of the result.
+"""
 
-base = 2 
+POWER = 3
+BASE = 2
+ZERO = 0
 
-zero = 0
+print(type(ZERO))
 
-print(type(zero))
+RESULT = str(BASE) + POWER * str(ZERO)
 
-result = str(base) + power * str(zero)
-
-print(type(result))
+print(type(RESULT))

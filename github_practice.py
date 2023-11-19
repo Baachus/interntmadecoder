@@ -1,3 +1,9 @@
+"""
+This module performs basic arithmetic operations and interacts with the user.
+It greets the user, performs addition, subtraction, multiplication, and division 
+based on user input, and calculates the user's age on their next birthday.
+"""
+
 print("Task 1:")
 print("Hello, world!")
 

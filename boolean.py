@@ -1,29 +1,34 @@
-a = 10 - 3
-b = 2**3 
-c = a == b
+"""
+This module performs various mathematical operations and compares the results.
+It then prints the results of these comparisons.
+"""
 
-print(f"exercise 1, answer: {c}")
+A = 10 - 3
+B = 2**3
+C = A == B
 
-m = 20 // 4
-n = 5 + 1
-o = m < n
+print(f"exercise 1, answer: {C}")
 
-print(f"exercise 2, answer: {o}")
+M = 20 // 4
+N = 5 + 1
+O = m < n
 
-p = 12 % 5
-q = 2 * 2
-r = p > q
+print(f"exercise 2, answer: {O}")
 
-print(f"exercise 3, answer: {r}")
+P = 12 % 5
+Q = 2 * 2
+R = P > Q
 
-s = 7 + 8 - 5 
-t = 3**2
-u = s <= t
+print(f"exercise 3, answer: {R}")
 
-print(f"exercise 4, answer: {u}")
+S = 7 + 8 - 5
+T = 3**2
+U = S <= T
 
-v = 15 / 3
-w = 3**2 - 3
-x = v != w
+print(f"exercise 4, answer: {U}")
 
-print(f"exercise 5, answer: {x}")
+V = 15 / 3
+W = 3**2 - 3
+X = V != W
+
+print(f"exercise 5, answer: {W}")
