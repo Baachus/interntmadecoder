@@ -1,9 +1,6 @@
 """"
 Module to drive car
 """
-from shutil import move
-
-
 def move_forward():
     """
     Moves the vehicle forward.
