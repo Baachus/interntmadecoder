@@ -38,11 +38,12 @@ def geometry(length, radius):
         print("The circle has a larger area than the rectangle.")
     else:
         print("The rectangle and circle have equal areas.")
-    
+
 LENGTH = int(input("Enter the length of the rectangle: "))
 BREADTH = int(input("Enter the breadth of the rectangle: "))
 
-print(f"The area of a rectangle with length {LENGTH} and breadth {BREADTH} is: {rectangle_area(LENGTH, BREADTH)}")
+print(f"The area of a rectangle with length {LENGTH} and "+
+        "breadth {BREADTH} is: {rectangle_area(LENGTH, BREADTH)}")
 
 RADIUS = int(input("Enter the radius of the circle: "))
 
