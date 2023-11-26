@@ -1,3 +1,10 @@
+"""
+This module demonstrates the use of lists, dictionaries, and complex data structures in Python.
+It performs various operations on a list of fruits, a dictionary representing a student, and a 
+list of dictionaries representing a library of books.  It also manipulates a dictionary representing 
+courses and the students enrolled in them.
+"""
+
 fruits = ['apple', 'banana', 'cherry' , 'date']
 
 fruits.append('elderberry')
