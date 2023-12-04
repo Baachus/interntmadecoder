@@ -4,31 +4,6 @@ sorts files
 import os
 import shutil
 
-FILE_LOCATION = input("Please input the folder location you would like to organize: ")
-
-mapping = {
-            '.epub': 'Books',
-            '.zip': 'Compressed Files',
-            '.cbz': 'Comics',
-            '.pdf': 'Documents',
-            '.csv': 'Documents',
-            '.doc': 'Documents',
-            '.docx': 'Documents',
-            '.jpg': 'Images',
-            '.png': 'Images',
-            '.mp3': 'Music',
-            '.mp4': 'Videos',
-            '.mkv': 'Videos',
-            '.avi': 'Videos',
-            '.ini': 'Other'
-}
-
-if FILE_LOCATION == '':
-    FILE_LOCATION = 'C:\\users\\bcrob\\Downloads'
-
-# Open folder location from file_location
-os.chdir(FILE_LOCATION)
-
 def migrate_file(to_check, subdir):
     """
     move file
@@ -71,6 +46,31 @@ def migrate_folder(to_check, subdir=''):
         elif os.path.isdir(item):
             migrate_folder(item, os.path.join(subdir, item))
     os.chdir('..')
+
+FILE_LOCATION = input("Please input the folder location you would like to organize: ")
+
+mapping = {
+            '.epub': 'Books',
+            '.zip': 'Compressed Files',
+            '.cbz': 'Comics',
+            '.pdf': 'Documents',
+            '.csv': 'Documents',
+            '.doc': 'Documents',
+            '.docx': 'Documents',
+            '.jpg': 'Images',
+            '.png': 'Images',
+            '.mp3': 'Music',
+            '.mp4': 'Videos',
+            '.mkv': 'Videos',
+            '.avi': 'Videos',
+            '.ini': 'Other'
+}
+
+if FILE_LOCATION == '':
+    FILE_LOCATION = 'C:\\users\\bcrob\\Downloads'
+
+# Open folder location from file_location
+os.chdir(FILE_LOCATION)
 
 print(f'Beginning processing of {FILE_LOCATION}')
 

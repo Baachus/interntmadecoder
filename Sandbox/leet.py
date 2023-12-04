@@ -140,9 +140,9 @@ def leet_code_3_sum():
     nums = [-1,0,1,2,-1,-4]
     print(f'The triplets are {three_sum(nums)}')
 
-# leet_code_27()
-# leet_code_two_sum()
-# leet_code_palindrome_number()
-# leet_code_roman_to_integer()
-# leet_code_remove_duplicates_from_array()
+leet_code_27()
+leet_code_two_sum()
+leet_code_palindrome_number()
+leet_code_roman_to_integer()
+leet_code_remove_duplicates_from_array()
 leet_code_3_sum()
