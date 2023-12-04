@@ -50,6 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+Sandbox/sales_data/sales_data[0-9]*.csv
 
 # Translations
 *.mo
