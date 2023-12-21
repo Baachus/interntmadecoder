@@ -47,7 +47,7 @@ def migrate_folder(to_check, subdir=''):
             migrate_folder(item, os.path.join(subdir, item))
     os.chdir('..')
 
-FILE_LOCATION = input("Please input the folder location you would like to organize: ")
+FILE_LOCATION = input("Please input the folder location you would like to organize or enter nothing for default location: ")
 
 mapping = {
             '.epub': 'Books',
