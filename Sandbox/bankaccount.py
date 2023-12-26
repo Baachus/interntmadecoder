@@ -3,35 +3,45 @@ class BankAccount:
     Bank account information
     """
     def __init__(self,account_holder,balance):
-        self.account_holder = account_holder
-        self.balance = balance
+        self.__account_holder = account_holder
+        self.__balance = balance
 
     def withdraw(self,fund):
         """
         Withdraw money from the balance
         """
-        print(f"Withdrawing {fund} from {self.account_holder}'s account")
-        if fund>self.balance:
-            print(f"Insufficient funds to withdraw from {self.account_holder}'s account")
+        print(f"Withdrawing {fund} from {self.__account_holder}'s account")
+        if fund>self.__balance:
+            print(f"Insufficient funds to withdraw from {self.__account_holder}'s account")
         else:
-            self.balance -= fund
-            print(f"Balance: {self.balance}")
+            self.__balance -= fund
+            print(f"Balance: {self.__balance}")
 
     def deposit(self,fund):
         """
         Deposit money into the balance
         """
-        print(f"Depositing {fund} into {self.account_holder}'s account")
-        self.balance += fund
-        print(f"Balance: {self.balance}")
+        print(f"Depositing {fund} into {self.__account_holder}'s account")
+        self.__balance += fund
+        print(f"Balance: {self.__balance}")
 
     def account_information(self):
         """
         Print account information
         """
-        print(f"{self.account_holder}'s balance is currently {self.balance}")
+        print(f"{self.__account_holder}'s balance is currently {self.__balance}")
 
+    # Getters
+    @property
+    def balance(self):
+        """Balance"""
+        return self.__balance
 
+    @property
+    def account_holder(self):
+        """Account holder"""
+        return self.__account_holder
+    
 my_account = BankAccount("Robert", 10000)
 ken_account = BankAccount("Ken", 8000)
 bob_account = BankAccount("Bob", 80)
