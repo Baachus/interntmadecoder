@@ -24,5 +24,18 @@
         "titleBar.inactiveBackground": "#02587099",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#025870"
+    "peacock.color": "#025870",
+    "cSpell.words": [
+        "chromedriver",
+        "taskkill"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./server",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
 }

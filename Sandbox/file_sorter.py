@@ -50,9 +50,11 @@ def migrate_folder(to_check, subdir=''):
 FILE_LOCATION = input("Please input the folder location you would like to organize or enter nothing for default location: ")
 
 mapping = {
+            '.exe': 'Application',
             '.epub': 'Books',
             '.zip': 'Compressed Files',
             '.cbz': 'Comics',
+            '.cbr': 'Comics',
             '.pdf': 'Documents',
             '.csv': 'Documents',
             '.doc': 'Documents',
@@ -82,3 +84,10 @@ for to_check in os.listdir():
         migrate_folder(to_check, to_check)
 
 print(f'All files have been processed at {FILE_LOCATION}')
+
+remove_files = input('Would you like to remove the files from the original location? [y/n]: ')
+
+# if remove_files.lower() == 'y' or remove_files.lower() == 'yes':
+#     for to_check in os.listdir():
+#         if os.path.isfile(to_check and to_check not in mapping.values()):
+#             os.remove(to_check)
