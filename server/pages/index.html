@@ -4,22 +4,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Donald Duck</title>
-        <link rel="stylesheet" type="text/css" href="../css/styles.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script src="../js/script.js"></script>
     </head>
     <body>
+        <nav>
+            <a href="video.html">Video</a>
+            <a href="page.html">Page 1</a>
+            <a href="page2.html">Page 2</a>
+            <a href="http://www.google.com" target="_blank">More Information</a>
+        </nav>
         <h1>Donald Duck appreciation page</h1>
-        <h2>My favorite duck</h2>
+        <h2 id="subheader">My favorite duck</h2>
         <p class="first-text">Donald is my best friend, I love him so very much.  Here is a picture of him:</p>
-        <img src="../images/Donald_Duck.png" alt="Image of Donald Duck">
-        <p class="second-text">To learn more, <a href="http://en.wikipedia.org/wiki/Donald_Duck">click this link</a></p>
+        <div class="image-container">
+            <img src="../images/Donald_Duck.png" alt="Image of Donald Duck">
+            <img src="../images/Donald_Duck_Glamore_Shot.png" alt="Second Image of Donald Duck">
+        </div>
+        <p class="second-text">To learn more, <a id="link" href="http://en.wikipedia.org/wiki/Donald_Duck">click this link</a></p>
         <p id="important-text">Important info: this page is super duper cool</p>
         <p class="first-text" id="important-text">This is important and first-text</p>
-        <h4>Other links:</h4>
-        <nav>
-            <p><a href="video.html">Here is a video of Donald</a></p>
-            <p><a href="page.html">Page</a></p>
-            <p><a href="page2.html">Page</a></p>
-            <a href="http://www.google.com" target="_blank">Please search for my information on my best friend.</a>
-        </nav>
+
+        <button id="myButton" onclick="showAlert()">Click Title with Log</button>
+        <button id="changeLink" onclick="changeLink()">Change Link</button>
+        <button id="dontClick" onclick="doNotClick()">Don't Click Me</button>
     </body>
 </html>
