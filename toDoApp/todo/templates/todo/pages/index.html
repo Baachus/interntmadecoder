@@ -1,0 +1,64 @@
+{% extends 'todo/pages/layout.html' %}
+{% block content %}
+<h1>What will you do today?</h1>
+<div class="input-container">
+    <form method="POST" action="{% url 'todo:add_task' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button id="addTask" class="btn btn-primary">Add</button>
+    </form>
+</div>
+<div id="list-container" class="nt-4">
+    <ul id="task-list-1" class="task-list list-group">
+        <h4>Priority 1</h4>
+        {% if tasks %}
+            {% for task in tasks %}
+                {% if task.priority == 1 %}
+                    <li id={{task.name}} class='list-group-item'>
+                        <input class="form-check-input" type="checkbox">
+                        <span class="task-text">
+                            <a href="{% url 'todo:task' task.id %}">{{task.name}}</a>
+                        </span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p id="task-list-empty" style="color:black"> No tasks yet </p>
+        {% endif %}
+    </ul>
+    <ul id="task-list-2" class="task-list list-group">
+        <h4>Priority 2</h4>
+        {% if tasks %}
+            {% for task in tasks %}
+                {% if task.priority == 2 %}
+                    <li id={{task.name}} class='list-group-item'>
+                        <input class="form-check-input" type="checkbox">
+                        <span class="task-text">
+                            <a href="{% url 'todo:task' task.id %}">{{task.name}}</a>
+                        </span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p id="task-list-empty" style="color:black"> No tasks yet </p>
+        {% endif %}
+    </ul>
+    <ul id="task-list-3" class="task-list list-group">
+        <h4>Priority 3</h4>
+        {% if tasks %}
+            {% for task in tasks %}
+                {% if task.priority == 3 %}
+                    <li id={{task.name}} class='list-group-item'>
+                        <input class="form-check-input" type="checkbox">
+                        <span class="task-text">
+                            <a href="{% url 'todo:task' task.id %}">{{task.name}}</a>
+                        </span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p id="task-list-empty" style="color:black"> No tasks yet </p>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

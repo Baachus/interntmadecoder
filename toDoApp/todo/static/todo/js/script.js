@@ -36,7 +36,7 @@ function addTask(){
     taskItem.appendChild(taskText);
     taskList.appendChild(taskItem);
 
-    task.value = "";
+    document.getElementById("taskInput").value = "";
 }
 
 listContainer.addEventListener("click", function(e){
