@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 from .forms import TaskForm
+from .models import TaskModel
 
 tasks = [
     {"id": 1, "name": "Make video", "description": "Record your video with new camera", "priority": 1},
@@ -11,19 +12,11 @@ tasks = [
     {"id": 3, "name": "Publish video", "description": "Publish your video to social media sites", "priority": 3}
     ]
 
-def get_task_by_id(task_id):
-    ''''This function is used to get the task by id.'''
-    for task in tasks:
-        if task['id'] == task_id:
-            return task
-    return None
-
 def index(request):
     ''''This function is used to render the html file for the todo app.'''
     taskform = TaskForm()
-    if not 'tasks' in request.session:
-        request.session['tasks'] = []
-    ctx = {'tasks': request.session['tasks'], "form": taskform}
+    tasks = TaskModel.objects.all()
+    ctx = {'tasks': tasks, "form": taskform}
     return render(request, "todo/pages/index.html", ctx)
 
 def add_task(request):
@@ -31,22 +24,20 @@ def add_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = {
-                "id": len(request.session['tasks']) + 1,
-                "name": form.cleaned_data["task"],
-                "description": form.cleaned_data["description"],
-                "priority": form.cleaned_data["priority"]
-            }
-            request.session['tasks'].append(task)
-            request.session.save()
-            print(request.session['tasks'])
+            task = TaskModel(
+                name=form.cleaned_data["task"],
+                description=form.cleaned_data["description"],
+                priority=form.cleaned_data["priority"]
+            )
+            task.save()
         else:
             return HttpResponse("Invalid form")
     return HttpResponseRedirect(reverse('todo:index'))
 
 def task(request, id):
     ''''This function is used to render the html file for the todo app.'''
-    ctx = {"task": get_task_by_id(id),}
+    task = TaskModel.objects.get(id=id)
+    ctx = {"task": task}
     return render(request, 'todo/pages/task.html', ctx)
 
 class AboutView(View):
