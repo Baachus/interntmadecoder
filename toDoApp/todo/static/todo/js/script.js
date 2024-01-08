@@ -1,58 +1,56 @@
-const listContainer = document.getElementById("list-container");
+// app.js
 
-function addTask(){
-    console.log("Adding Task...");
+// select elements
+const input = document.getElementById("input");
+const priority = document.getElementById("priority");
+const addBtn = document.getElementById("addBtn");
+const listsContainer = document.getElementById("lists-container");
+const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value
 
-    // Global variables
-    let task = document.getElementById("taskInput").value;
-    const priority = document.getElementById("priority").value;
+console.log(listsContainer)
 
-    // Remove whitespace
-    task = task.trim();
+// add event listener to the add button
+addBtn.addEventListener("click", function() {
+    const task = input.value;
+    const taskPriority = priority.value;
 
-    // Check if task is empty
-    if (task == "") {
-        alert("Please enter a task.");
+    if (task.trim() === "") {
         return;
     }
 
-    // Modifiable variables
     const taskItem = document.createElement("li");
     const taskText = document.createElement("span");
-    taskItem.classList.add("list-group-item");
-    taskText.classList.add("task-text");
+    taskText.classList.add("task-text")
+    const checkbox = document.createElement("input");
+    checkbox.classList.add("form-check-input")
+    checkbox.type = "checkbox";
     taskText.textContent = task;
-
-    const checkItem = document.createElement("input");
-    checkItem.type = "checkbox";
-    checkItem.classList.add("form-check-input");
-    
-    // Set ID and priority list for the new task
-    taskItem.id = task;
-    let taskList = document.getElementById("task-list-"+priority);
-
-    // Add task to list
-    taskItem.appendChild(checkItem);
+    taskItem.appendChild(checkbox);
     taskItem.appendChild(taskText);
+
+    const taskList = document.getElementById("list-" + taskPriority);
     taskList.appendChild(taskItem);
 
-    document.getElementById("taskInput").value = "";
-}
+    input.value = "";
+});
 
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName==="INPUT" && e.target.type==="checkbox"){
+// add event listener to the task lists
+listsContainer.addEventListener("click", function(e) {
+    if (e.target.tagName === "INPUT" && e.target.type === "checkbox") {
+        const taskId = e.target.id
+        fetch('/todo/delete_task', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({taskId: taskId})
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
         const listItem = e.target.parentNode;
-        
-        // Strike through task
-        if(e.target.checked){
-            listItem.style.textDecoration = "line-through";
-        }
-        else{
-            listItem.style.textDecoration = "none";
-        }
-
-        // Remove task from list
-        // const taskList = listItem.parentNode;
-        // taskList.removeChild(listItem);
+        const taskList = listItem.parentNode;
+        taskList.removeChild(listItem);
     }
 });
