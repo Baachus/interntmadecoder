@@ -30,6 +30,7 @@
         "chromedriver",
         "csrfmiddlewaretoken",
         "csrftoken",
+        "Pygame",
         "taskform",
         "taskkill"
     ],
